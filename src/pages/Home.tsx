@@ -121,6 +121,9 @@ export default function App() {
 					<li>
 						Learn the tiles, yaku, and the scoring table in the <H>Reference</H>.
 					</li>
+					<li>
+						Version modified by DD.
+					</li>
 				</ul>
 			</div>
 			{openNewCompassDialog && <NewCompassDialog onClose={() => setOpenNewCompassDialog(false)} />}
