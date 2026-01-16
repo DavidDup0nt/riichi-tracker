@@ -57,21 +57,21 @@ export function shortForTile(tile: TileCode): [string, 'base' | 'blue' | 'green'
 export function letterForTile(tile: TileCode): [string, 'base' | 'blue' | 'green' | 'red'] {
 	switch (tile) {
 		case '1z':
-			return ['E', 'blue'];
+			return ['E', 'red'];
 		case '2z':
-			return ['S', 'blue'];
+			return ['S', 'red'];
 		case '3z':
-			return ['W', 'blue'];
+			return ['W', 'red'];
 		case '4z':
-			return ['N', 'blue'];
+			return ['N', 'red'];
 		case '5z':
-			return ['Wh', 'base'];
+			return ['Wh', 'red'];
 		case '6z':
-			return ['G', 'green'];
+			return ['G', 'red'];
 		case '7z':
-			return ['R', 'red'];
+			return ['R', 'blue'];
 		default: {
-			const suit = tile[1] === 'm' ? 'red' : tile[1] === 'p' ? 'blue' : 'green';
+			const suit = tile[0] === '0' ? 'blue' : 'red';
 			const num = tile[0] === '0' ? '5' : tile[0];
 			return [num, suit];
 		}
@@ -102,14 +102,7 @@ export default function Tile({ tile, small = false }: { tile: TileCode | '00'; s
 		);
 	}
 	const file = (tile === '00' ? svgForTile('5z') : svgForTile(tile))[theme === 'dark' ? 1 : 0];
-	//return (
-	//	<img
-	//		src={file}
-	//		className={clsx(
-	//			small ? 'h-16 w-12 min-w-[3rem] p-2' : 'h-16 w-12 min-w-[3rem] lg:h-20 lg:w-[3.75rem] lg:min-w-[3.75rem] p-2',
-	//			'rounded-xl',
-	//		)}
-	//	></img>
+	const [text, color] = tile === '00' ? ([' ', 'base'] as const) : letterForTile(tile);
 	return (	
 		<div className="relative inline-block">
 		  <img
@@ -125,12 +118,19 @@ export default function Tile({ tile, small = false }: { tile: TileCode | '00'; s
 		  {letterForTile(tile) && (
 			<span
 			  className={clsx(
-				'absolute top-1 right-1 text-xs font-bold',
+				'absolute top-1 right-1 text-xs font-bold justify-right',
 				'px-1 rounded',
+				color === 'red'
+						? 'text-red-600 dark:text-red-700'
+						: color === 'green'
+						? 'text-green-700 dark:text-green-800'
+						: color === 'blue'
+						? 'text-blue-800 dark:text-blue-900'
+						: '',
 				// Fond transparent → pas de bg
 			  )}
 			>
-			  {letterForTile(tile)}
+				{text}
 			</span>
 		  )}
 		</div>
