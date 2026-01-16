@@ -120,7 +120,7 @@ export default function Tile({ tile, small = false }: { tile: TileCode | '00'; s
 				: 'h-16 w-12 min-w-[3.75rem] lg:h-20 lg:w-[3.75rem] lg:min-w-[3.75rem] p-2',
 			  'rounded-xl'
 			)}
-		  /></img>
+		  ></img>
 
 		  {letterForTile(tile) && (
 			<span
