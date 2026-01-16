@@ -53,6 +53,31 @@ export function shortForTile(tile: TileCode): [string, 'base' | 'blue' | 'green'
 	}
 }
 
+//DDA 
+export function letterForTile(tile: TileCode): [string, 'base' | 'blue' | 'green' | 'red'] {
+	switch (tile) {
+		case '1z':
+			return ['E', 'blue'];
+		case '2z':
+			return ['S', 'blue'];
+		case '3z':
+			return ['W', 'blue'];
+		case '4z':
+			return ['N', 'blue'];
+		case '5z':
+			return ['Wh', 'base'];
+		case '6z':
+			return ['G', 'green'];
+		case '7z':
+			return ['R', 'red'];
+		default: {
+			const suit = tile[1] === 'm' ? 'red' : tile[1] === 'p' ? 'blue' : 'green';
+			const num = tile[0] === '0' ? '5' : tile[0];
+			return [num, suit];
+		}
+	}
+}
+
 export default function Tile({ tile, small = false }: { tile: TileCode | '00'; small?: boolean }) {
 	const theme = useTheme();
 	const isLg = useMediaQuery({ query: '(min-width: 1024px)' });
@@ -77,14 +102,39 @@ export default function Tile({ tile, small = false }: { tile: TileCode | '00'; s
 		);
 	}
 	const file = (tile === '00' ? svgForTile('5z') : svgForTile(tile))[theme === 'dark' ? 1 : 0];
-	return (
-		<img
+	//return (
+	//	<img
+	//		src={file}
+	//		className={clsx(
+	//			small ? 'h-16 w-12 min-w-[3rem] p-2' : 'h-16 w-12 min-w-[3rem] lg:h-20 lg:w-[3.75rem] lg:min-w-[3.75rem] p-2',
+	//			'rounded-xl',
+	//		)}
+	//	></img>
+	return (	
+		<div className="relative inline-block">
+		  <img
 			src={file}
 			className={clsx(
-				small ? 'h-16 w-12 min-w-[3rem] p-2' : 'h-16 w-12 min-w-[3rem] lg:h-20 lg:w-[3.75rem] lg:min-w-[3.75rem] p-2',
-				'rounded-xl',
+			  small
+				? 'h-16 w-12 min-w-[3rem] p-2'
+				: 'h-16 w-12 min-w-[3.75rem] lg:h-20 lg:w-[3.75rem] lg:min-w-[3.75rem] p-2',
+			  'rounded-xl'
 			)}
-		></img>
+		  /></img>
+
+		  {letterForTile(tile) && (
+			<span
+			  className={clsx(
+				'absolute top-1 right-1 text-xs font-bold',
+				'px-1 rounded',
+				// Fond transparent → pas de bg
+			  )}
+			>
+			  {letterForTile(tile)}
+			</span>
+		  )}
+		</div>
+
 	);
 }
 
