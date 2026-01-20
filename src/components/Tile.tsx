@@ -120,7 +120,7 @@ export default function Tile({ tile, small = false }: { tile: TileCode | '00'; s
 			  className={clsx(
 				'absolute top-1 right-1 text-sm font-bold text-right',
 				'px-1 rounded',
-					'[-webkit-text-stroke:2px_white] dark:[-webkit-text-stroke:2px_black]',
+					'[-webkit-text-stroke:3px_white] dark:[-webkit-text-stroke:3px_black]',
 					'text-black dark:text-gray-100'
 			  )}
 			>
