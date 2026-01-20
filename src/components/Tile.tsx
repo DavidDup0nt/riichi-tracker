@@ -88,7 +88,7 @@ export default function Tile({ tile, small = false }: { tile: TileCode | '00'; s
 			<div
 				className={clsx(
 					'h-8 w-6 min-w-[1.5rem] lg:h-16 lg:w-12 lg:min-w-[3rem] flex flex-col justify-center items-center text-lg lg:text-3xl font-bold select-none',
-					'drop-shadow-[0_0_2px_white] drop-shadow-[0_0_6px_white]'
+					'drop-shadow-[0_0_2px_white] drop-shadow-[0_0_6px_white]',
 					color === 'red'
 						? 'text-red-600 dark:text-red-700'
 						: color === 'black'
