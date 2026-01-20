@@ -54,24 +54,24 @@ export function shortForTile(tile: TileCode): [string, 'base' | 'blue' | 'green'
 }
 
 //DDA 
-export function letterForTile(tile: TileCode): [string, 'base' | 'blue' | 'green' | 'red'] {
+export function letterForTile(tile: TileCode): [string, 'base' | 'blue' | 'black' | 'red'] {
 	switch (tile) {
 		case '1z':
-			return ['E', 'red'];
+			return ['E', 'blue'];
 		case '2z':
-			return ['S', 'red'];
+			return ['S', 'blue'];
 		case '3z':
-			return ['W', 'red'];
+			return ['W', 'blue'];
 		case '4z':
-			return ['N', 'red'];
+			return ['N', 'blue'];
 		case '5z':
 			return ['Wh', 'red'];
 		case '6z':
 			return ['G', 'red'];
 		case '7z':
-			return ['R', 'blue'];
+			return ['R', 'black'];
 		default: {
-			const suit = tile[0] === '0' ? 'blue' : 'red';
+			const suit = tile[0] === '0' ? 'black' : 'red';
 			const num = tile[0] === '0' ? '5' : tile[0];
 			return [num, suit];
 		}
@@ -88,10 +88,11 @@ export default function Tile({ tile, small = false }: { tile: TileCode | '00'; s
 			<div
 				className={clsx(
 					'h-8 w-6 min-w-[1.5rem] lg:h-16 lg:w-12 lg:min-w-[3rem] flex flex-col justify-center items-center text-lg lg:text-3xl font-bold select-none',
+					'drop-shadow-[0_0_2px_white] drop-shadow-[0_0_6px_white]'
 					color === 'red'
 						? 'text-red-600 dark:text-red-700'
-						: color === 'green'
-						? 'text-green-700 dark:text-green-800'
+						: color === 'black'
+						? 'text-black dark:text-gray-100'
 						: color === 'blue'
 						? 'text-blue-800 dark:text-blue-900'
 						: '',
