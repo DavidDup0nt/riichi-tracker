@@ -1,4 +1,4 @@
-##On going Features
+## On going Features
  - add international writing on the top corner
 
 # Riichi Tracker
