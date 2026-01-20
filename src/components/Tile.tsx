@@ -54,7 +54,7 @@ export function shortForTile(tile: TileCode): [string, 'base' | 'blue' | 'green'
 }
 
 //DDA 
-export function letterForTile(tile: TileCode): [string, 'base' | 'blue' | 'black' | 'red'] {
+export function letterForTile(tile: TileCode): [string, 'base' | 'blue' | 'green' | 'red'] {
 	switch (tile) {
 		case '1z':
 			return ['E', 'blue'];
@@ -69,9 +69,9 @@ export function letterForTile(tile: TileCode): [string, 'base' | 'blue' | 'black
 		case '6z':
 			return ['G', 'red'];
 		case '7z':
-			return ['R', 'black'];
+			return ['R', 'green'];
 		default: {
-			const suit = tile[0] === '0' ? 'black' : 'red';
+			const suit = tile[0] === '0' ? 'green' : 'red';
 			const num = tile[0] === '0' ? '5' : tile[0];
 			return [num, suit];
 		}
@@ -123,7 +123,7 @@ export default function Tile({ tile, small = false }: { tile: TileCode | '00'; s
 					'drop-shadow-[0_0_2px_white] drop-shadow-[0_0_6px_white]',
 					color === 'red'
 						? 'text-red-600 dark:text-red-700'
-						: color === 'black'
+						: color === 'green'
 						? 'text-black dark:text-gray-100'
 						: color === 'blue'
 						? 'text-blue-800 dark:text-blue-900'
