@@ -115,7 +115,7 @@ export default function Tile({ tile, small = false }: { tile: TileCode | '00'; s
 			)}
 		  ></img>
 
-		  {letterForTile(tile) && (
+		 
 			<span
 			  className={clsx(
 				'absolute top-1 right-1 text-xs font-bold justify-right',
@@ -132,7 +132,7 @@ export default function Tile({ tile, small = false }: { tile: TileCode | '00'; s
 			>
 				{text}
 			</span>
-		  )}
+		  
 		</div>
 
 	);
