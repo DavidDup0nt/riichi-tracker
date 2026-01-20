@@ -122,7 +122,7 @@ export default function App() {
 						Learn the tiles, yaku, and the scoring table in the <H>Reference</H>.
 					</li>
 					<li>
-						Version modified by DD.
+						Version modified by DD. adding internationalisation
 					</li>
 				</ul>
 			</div>
