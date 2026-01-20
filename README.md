@@ -1,3 +1,6 @@
+##On going Features
+ - add international writing on the top corner
+
 # Riichi Tracker
 
 A riichi mahjong hand calculator and interactive compass.  
