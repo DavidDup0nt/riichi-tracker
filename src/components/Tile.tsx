@@ -127,8 +127,7 @@ export default function Tile({ tile, small = false }: { tile: TileCode | '00'; s
 						? 'text-green-700 dark:text-green-800'
 						: color === 'blue'
 						? 'text-blue-800 dark:text-blue-900'
-						: '',
-				// Fond transparent → pas de bg
+						: ''
 			  )}
 			>
 				{text}
