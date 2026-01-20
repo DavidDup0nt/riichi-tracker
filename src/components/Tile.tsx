@@ -120,7 +120,7 @@ export default function Tile({ tile, small = false }: { tile: TileCode | '00'; s
 			  className={clsx(
 				'absolute top-1 right-1 text-xs font-bold text-right',
 				'px-1 rounded',
-					'[-webkit-text-stroke:1.25px_white] dark:[-webkit-text-stroke:1.25px_black]',
+					'[-webkit-text-stroke:1px_white] dark:[-webkit-text-stroke:1px_black]',
 					color === 'red'
 						? 'text-red-600 dark:text-red-700'
 						: color === 'green'
