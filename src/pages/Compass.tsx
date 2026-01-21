@@ -205,7 +205,7 @@ function CompassWithGame({ locState, game }: { locState: CompassState; game: Gam
 										'landscape:mt-2 landscape:lg:mt-2',
 									)}
 								>
-									⠿
+									⣿
 								</span>
 								<span>{repeats}</span>
 							</span>
