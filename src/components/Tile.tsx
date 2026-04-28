@@ -128,7 +128,7 @@ export default function Tile({ tile, small = false }: { tile: TileCode | '00'; s
 			</span>
 			<span
 			  className={clsx(
-				'absolute top-1 right-1 text-sm font-bold text-right',
+				'absolute top-1 right-1 text-[8px] font-bold text-right',
 				'px-1 rounded',
 					color === 'red'
 						? 'text-red-600 dark:text-red-700'
